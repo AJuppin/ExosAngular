@@ -1,0 +1,75 @@
+<!-- calculatrice.component.html -->
+<h1>Calculatrice</h1>
+
+<form #f="ngForm" (ngSubmit)="calculate(f)">
+  <div>
+    <label for="nombre1">Nombre 1:</label>
+    <input
+      type="number"
+      id="nombre1"
+      name="nombre1"
+      [(ngModel)]="historique.nombre1"
+    />
+  </div>
+
+  <div>
+    <label for="nombre2">Nombre 2:</label>
+    <input
+      type="number"
+      id="nombre2"
+      name="nombre2"
+      [(ngModel)]="historique.nombre2"
+    />
+  </div>
+
+  <div>
+    <label for="operation">Opération:</label>
+    <select id="operation" name="operation" [(ngModel)]="historique.operation">
+      <option value="addition">Addition (+)</option>
+      <option value="soustraction">Soustraction (-)</option>
+      <option value="multiplication">Multiplication (*)</option>
+      <option value="division">Division (/)</option>
+    </select>
+  </div>
+
+  <div>
+    <button type="submit">=</button>
+  </div>
+</form>
+
+<div>
+  <label for="resultat">Résultat:</label>
+  <input
+    type="number"
+    id="resultat"
+    name="resultat"
+    [(ngModel)]="historique.resultat"
+  />
+</div>
+
+<br />
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre 1</th>
+      <th>Nombre 2</th>
+      <th>Opération</th>
+      <th>Résultat</th>
+      <th>Heure</th>
+      <th>Supprimer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let historique of historiques">
+      <td>{{ historique.nombre1 }}</td>
+      <td>{{ historique.nombre2 }}</td>
+      <td>{{ historique.operation }}</td>
+      <td>{{ historique.resultat }}</td>
+      <td>{{ historique.heure }}</td>
+      <td>
+        <button (click)="supprimerHistorique(historique)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

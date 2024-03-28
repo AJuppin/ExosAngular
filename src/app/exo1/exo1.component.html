@@ -1,0 +1,56 @@
+<!-- exo1.component.html -->
+
+<div>
+  <label for="name">Entrez votre nom :</label>
+  <input type="text" id="name" [(ngModel)]="userName" name="name" />
+</div>
+
+<div>
+  <label for="font">Choisissez la police de caractère :</label>
+  <select id="font" [(ngModel)]="selectedFont" name="font">
+    <option *ngFor="let font of fonts" [value]="font">{{ font }}</option>
+  </select>
+</div>
+
+<div>
+  <label for="size">Choisissez la taille :</label>
+  <input type="number" id="size" [(ngModel)]="fontSize" name="size" />
+</div>
+
+<div>
+  <label>Choisissez l'alignement :</label>
+  <div>
+    <input
+      type="checkbox"
+      id="left"
+      [(ngModel)]="alignLeft"
+      name="alignLeft"
+      (ngModelChange)="generateMessage()"
+    />
+    <label for="left">Gauche</label>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+      id="center"
+      [(ngModel)]="alignCenter"
+      name="alignCenter"
+      (ngModelChange)="generateMessage()"
+    />
+    <label for="center">Centré</label>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+      id="right"
+      [(ngModel)]="alignRight"
+      name="alignRight"
+      (ngModelChange)="generateMessage()"
+    />
+    <label for="right">Droite</label>
+  </div>
+</div>
+
+<div [ngStyle]="generateMessageStyles()">
+  <p>{{ generateMessage() }}</p>
+</div>
