@@ -1,4 +1,18 @@
-<table>
+<h1>Liste transactions</h1>
+<br />
+
+<button
+  class="btn btn-primary"
+  class="btn btn-primary"
+  style="margin-right: 20px"
+  (click)="afficherExo1()"
+>
+  Exo 1
+</button>
+<button class="btn btn-primary" (click)="afficherExo2()">Exo 2</button>
+<br />
+<br />
+<table class="table table-striped">
   <thead>
     <tr>
       <th>id</th>
@@ -17,7 +31,7 @@
       <td>{{ transaction.label }}</td>
       <td>{{ transaction.date }}</td>
       <td>
-        <button (click)="afficherDetails()">Details</button>
+        <button (click)="afficherDetails(transaction.id)">Details</button>
       </td>
     </tr>
   </tbody>

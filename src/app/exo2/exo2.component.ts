@@ -3,6 +3,7 @@ import { Historique } from './historique';
 import { NgForm } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-exo2',
@@ -15,7 +16,7 @@ export class Exo2Component {
   historique: Historique = new Historique();
   historiques: Historique[] = [];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   calculate(form: NgForm): void {
     this.historique = new Historique(
@@ -57,5 +58,13 @@ export class Exo2Component {
     const index = this.historiques.indexOf(historique);
 
     this.historiques.splice(index, 1);
+  }
+
+  afficherExo1() {
+    this.router.navigateByUrl('exo1');
+  }
+
+  afficherExo3() {
+    this.router.navigateByUrl('exo3');
   }
 }

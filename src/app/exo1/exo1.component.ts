@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-exo1',
@@ -10,6 +11,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './exo1.component.css',
 })
 export class Exo1Component {
+  constructor(private router: Router) {}
+
   fontSize: number = 16;
   userName: string = '';
   selectedFont: string = '';
@@ -41,7 +44,11 @@ export class Exo1Component {
     return message;
   }
 
-  onSubmit(): void {
-    this.generateMessage();
+  afficherExo2() {
+    this.router.navigateByUrl('exo2');
+  }
+
+  afficherExo3() {
+    this.router.navigateByUrl('exo3');
   }
 }

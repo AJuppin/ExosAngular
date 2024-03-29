@@ -1,1 +1,9 @@
-<p>details works!</p>
+<h2>Titre : {{ transaction.label }}</h2>
+<br />
+<h4>Opération effectuée: {{ transaction.amount }}</h4>
+<br />
+<h4>Valeur du solde: {{ transaction.balance }}</h4>
+<br />
+<h4>Date de la transaction: {{ transaction.date }}</h4>
+<br />
+<button type="button" (click)="goBack()">Retour</button>

@@ -5,6 +5,7 @@
   <div>
     <label for="nombre1">Nombre 1:</label>
     <input
+      class="input-group-text"
       type="number"
       id="nombre1"
       name="nombre1"
@@ -15,6 +16,7 @@
   <div>
     <label for="nombre2">Nombre 2:</label>
     <input
+      class="input-group-text"
       type="number"
       id="nombre2"
       name="nombre2"
@@ -24,22 +26,28 @@
 
   <div>
     <label for="operation">Opération:</label>
-    <select id="operation" name="operation" [(ngModel)]="historique.operation">
+    <select
+      class="input-group-text"
+      id="operation"
+      name="operation"
+      [(ngModel)]="historique.operation"
+    >
       <option value="addition">Addition (+)</option>
       <option value="soustraction">Soustraction (-)</option>
       <option value="multiplication">Multiplication (*)</option>
       <option value="division">Division (/)</option>
     </select>
   </div>
-
+  <br />
   <div>
     <button type="submit">=</button>
   </div>
 </form>
-
+<br />
 <div>
   <label for="resultat">Résultat:</label>
   <input
+    class="input-group-text"
     type="number"
     id="resultat"
     name="resultat"
@@ -49,7 +57,7 @@
 
 <br />
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Nombre 1</th>
@@ -73,3 +81,14 @@
     </tr>
   </tbody>
 </table>
+
+<br />
+<button
+  class="btn btn-primary"
+  class="btn btn-primary"
+  style="margin-right: 20px"
+  (click)="afficherExo1()"
+>
+  Exo 1
+</button>
+<button class="btn btn-primary" (click)="afficherExo3()">Exo 3</button>

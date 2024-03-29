@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Transaction } from './transaction';
 import { HttpClient } from '@angular/common/http';
-import { Observable, forkJoin, map } from 'rxjs';
+import { Observable, forkJoin, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -25,5 +25,10 @@ export class TransactionService {
         )
       )
     );
+  }
+
+  getTransactionById(id: number): Observable<Transaction> {
+    const url = `http://localhost:3000/${id}`;
+    return this.http.get<Transaction>(url);
   }
 }

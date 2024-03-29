@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Transaction } from './transaction';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TransactionService } from './transaction.service';
 
 @Component({
@@ -17,6 +17,7 @@ export class Exo3Component implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private transactionService: TransactionService
   ) {}
 
@@ -28,10 +29,17 @@ export class Exo3Component implements OnInit {
     this.transactionService
       .getAllTransactions()
       .subscribe((response) => (this.transactions = response));
-    console.log(this.transactions);
   }
 
-  afficherDetails() {
-    this.router.navigateByUrl('details');
+  afficherDetails(id: number) {
+    this.router.navigateByUrl(`details/${id}`);
+  }
+
+  afficherExo1() {
+    this.router.navigateByUrl('exo1');
+  }
+
+  afficherExo2() {
+    this.router.navigateByUrl('exo2');
   }
 }
